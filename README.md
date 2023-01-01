@@ -55,4 +55,4 @@ We are an open source, community-driven project so please feel free to join us. 
 
 © 2023, Clivern. Released under [MIT License](https://opensource.org/licenses/mit-license.php).
 
-**Bagder** is authored and maintained by [@uptimedog](http://github.com/uptimedog).
+**Bagder** is authored and maintained by [@Clivern](http://github.com/Clivern).
