@@ -26,6 +26,8 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"go.opentelemetry.io/contrib/instrumentation/github.com/labstack/echo/otelecho"
+	"go.opentelemetry.io/otel/trace"
 )
 
 var serverCmd = &cobra.Command{
@@ -138,10 +140,19 @@ var serverCmd = &cobra.Command{
 		e.Use(middleware.TimeoutWithConfig(middleware.TimeoutConfig{
 			Timeout: time.Duration(viper.GetInt("server.timeout")) * time.Second,
 		}))
+		e.Use(otelecho.Middleware(viper.GetString("server.name")))
+		e.Use(middleware.Recover())
 
 		p := prometheus.NewPrometheus(viper.GetString("server.name"), nil)
 
 		p.Use(e)
+
+		e.HTTPErrorHandler = func(err error, c echo.Context) {
+			ctx := c.Request().Context()
+			trace.SpanFromContext(ctx).RecordError(err)
+
+			e.DefaultHTTPErrorHandler(err, c)
+		}
 
 		e.GET("/favicon.ico", func(c echo.Context) error {
 			return c.String(http.StatusNoContent, "")
