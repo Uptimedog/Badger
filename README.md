@@ -1,18 +1,15 @@
 <p align="center">
-    <img alt="Bagder Logo" src="/static/logo.png?v=0.1.0" width="220" />
-    <h3 align="center">Bagder</h3>
+    <img alt="Badger Logo" src="/static/logo.png?v=0.1.0" width="220" />
+    <h3 align="center">Badger</h3>
     <p align="center">A Microservice For LGTM Stack Testing</p>
     <p align="center">
-        <a href="https://github.com/Uptimedog/Bagder/actions/workflows/api.yml">
-            <img src="https://github.com/Uptimedog/Bagder/actions/workflows/api.yml/badge.svg">
+        <a href="https://github.com/Uptimedog/Badger/actions/workflows/api.yml">
+            <img src="https://github.com/Uptimedog/Badger/actions/workflows/api.yml/badge.svg">
         </a>
-        <a href="https://github.com/Uptimedog/Bagder/actions/workflows/ui.yml">
-            <img src="https://github.com/Uptimedog/Bagder/actions/workflows/ui.yml/badge.svg">
-        </a>
-        <a href="https://github.com/Uptimedog/Bagder/releases">
+        <a href="https://github.com/Uptimedog/Badger/releases">
             <img src="https://img.shields.io/badge/Version-v0.1.0-red.svg">
         </a>
-        <a href="https://github.com/Uptimedog/Bagder/blob/main/LICENSE">
+        <a href="https://github.com/Uptimedog/Badger/blob/main/LICENSE">
             <img src="https://img.shields.io/badge/LICENSE-MIT-grey.svg">
         </a>
     </p>
@@ -24,26 +21,26 @@
 To install Badger Server, Use the following script:
 
 ```zsh
-$ bash < <(curl -s https://raw.githubusercontent.com/Uptimedog/Bagder/main/deployment/ubuntu/install.sh)
+$ bash < <(curl -s https://raw.githubusercontent.com/Uptimedog/Badger/main/deployment/ubuntu/install.sh)
 
-$ bash < <(curl -s https://raw.githubusercontent.com/Uptimedog/Bagder/main/deployment/ubuntu/upgrade.sh)
+$ bash < <(curl -s https://raw.githubusercontent.com/Uptimedog/Badger/main/deployment/ubuntu/upgrade.sh)
 ```
 
 ### Versioning
 
-For transparency into our release cycle and in striving to maintain backward compatibility, Bagder is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
+For transparency into our release cycle and in striving to maintain backward compatibility, Badger is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
 
-See the [Releases section of our GitHub project](https://github.com/Uptimedog/Bagder/releases) for changelogs for each release version of Bagder. It contains summaries of the most noteworthy changes made in each release. Also see the [Milestones section](https://github.com/Uptimedog/Bagder/milestones) for the future roadmap.
+See the [Releases section of our GitHub project](https://github.com/Uptimedog/Badger/releases) for changelogs for each release version of Badger. It contains summaries of the most noteworthy changes made in each release. Also see the [Milestones section](https://github.com/Uptimedog/Badger/milestones) for the future roadmap.
 
 
 ### Bug tracker
 
-If you have any suggestions, bug reports, or annoyances please report them to our issue tracker at https://github.com/Uptimedog/Bagder/issues
+If you have any suggestions, bug reports, or annoyances please report them to our issue tracker at https://github.com/Uptimedog/Badger/issues
 
 
 ### Security Issues
 
-If you discover a security vulnerability within Bagder, please send an email to [hello@clivern.com](mailto:hello@clivern.com)
+If you discover a security vulnerability within Badger, please send an email to [hello@clivern.com](mailto:hello@clivern.com)
 
 
 ### Contributing
@@ -55,4 +52,4 @@ We are an open source, community-driven project so please feel free to join us. 
 
 © 2023, Clivern. Released under [MIT License](https://opensource.org/licenses/mit-license.php).
 
-**Bagder** is authored and maintained by [@Clivern](http://github.com/Clivern).
+**Badger** is authored and maintained by [@Clivern](http://github.com/Clivern).
