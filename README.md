@@ -7,7 +7,7 @@
             <img src="https://github.com/Uptimedog/Badger/actions/workflows/api.yml/badge.svg">
         </a>
         <a href="https://github.com/Uptimedog/Badger/releases">
-            <img src="https://img.shields.io/badge/Version-v0.1.0-red.svg">
+            <img src="https://img.shields.io/badge/Version-v0.2.0-red.svg">
         </a>
         <a href="https://github.com/Uptimedog/Badger/blob/main/LICENSE">
             <img src="https://img.shields.io/badge/LICENSE-MIT-grey.svg">
