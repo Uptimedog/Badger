@@ -7,7 +7,6 @@ package cmd
 import (
 	"bytes"
 	"fmt"
-	"io/fs"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -18,7 +17,6 @@ import (
 
 	"github.com/uptimedog/badger/core/controller"
 	mid "github.com/uptimedog/badger/core/middleware"
-	"github.com/uptimedog/badger/core/module"
 	"github.com/uptimedog/badger/core/service"
 
 	"github.com/drone/envsubst"
