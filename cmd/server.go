@@ -144,7 +144,6 @@ var serverCmd = &cobra.Command{
 		e.Use(middleware.Recover())
 
 		p := prometheus.NewPrometheus(viper.GetString("server.name"), nil)
-
 		p.Use(e)
 
 		e.HTTPErrorHandler = func(err error, c echo.Context) {
