@@ -6,6 +6,7 @@ package cmd
 
 import (
 	"bytes"
+	"crypto/subtle"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -20,7 +21,7 @@ import (
 	"github.com/uptimedog/badger/core/service"
 
 	"github.com/drone/envsubst"
-	"github.com/labstack/echo-contrib/prometheus"
+	"github.com/labstack/echo-contrib/echoprometheus"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	log "github.com/sirupsen/logrus"
@@ -128,6 +129,8 @@ var serverCmd = &cobra.Command{
 		viper.SetDefault("config", config)
 
 		e := echo.New()
+		e.HideBanner = true
+		e.HidePort = true
 
 		if viper.GetString("server.mode") == "dev" {
 			e.Debug = true
@@ -142,9 +145,25 @@ var serverCmd = &cobra.Command{
 		}))
 		e.Use(otelecho.Middleware(viper.GetString("server.name")))
 		e.Use(middleware.Recover())
+		e.Use(middleware.BasicAuthWithConfig(middleware.BasicAuthConfig{
+			Skipper: func(c echo.Context) bool {
+				// Skip basic auth for other routes
+				if c.Path() != "/metrics" {
+					return true
+				}
 
-		p := prometheus.NewPrometheus(viper.GetString("server.name"), nil)
-		p.Use(e)
+				return false
+			},
+			Validator: func(username, password string, c echo.Context) (bool, error) {
+				if subtle.ConstantTimeCompare([]byte(username), []byte(viper.GetString("server.metrics.username"))) == 1 &&
+					subtle.ConstantTimeCompare([]byte(password), []byte(viper.GetString("server.metrics.secret"))) == 1 {
+					return true, nil
+				}
+
+				return false, nil
+			},
+		}))
+		e.Use(echoprometheus.NewMiddleware(viper.GetString("server.name")))
 
 		e.HTTPErrorHandler = func(err error, c echo.Context) {
 			ctx := c.Request().Context()
@@ -158,6 +177,7 @@ var serverCmd = &cobra.Command{
 		})
 
 		e.GET("/", controller.HealthAction)
+		e.GET("/metrics", echoprometheus.NewHandler())
 		e.GET("/health", controller.HealthAction)
 
 		var runerr error

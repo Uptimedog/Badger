@@ -17,6 +17,11 @@ server:
   # Global timeout
   timeout: ${BADGER_SERVER_TIMEOUT:-50}
 
+  # Prometheus metrics endpoint
+  metrics:
+    username: ${BADGER_SERVER_PROM_METRICS_USERNAME:-admin}
+    secret: ${BADGER_SERVER_PROM_METRICS_SECRET:-secret}
+
   # Log configs
   log:
     # Log level, it can be debug, info, warn, error, panic, fatal
