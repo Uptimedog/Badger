@@ -3,7 +3,7 @@ server:
   # Server name
   name: ${BADGER_SERVER_NAME:-badger}
   # Env mode (dev or prod)
-  mode: ${BADGER_SERVER_MODE:-dev}
+  mode: ${BADGER_SERVER_MODE:-prod}
   # HTTP port
   port: ${BADGER_SERVER_PORT:-8000}
   # Hostname
