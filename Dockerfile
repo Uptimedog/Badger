@@ -1,4 +1,4 @@
-FROM golang:1.20.4
+FROM golang:1.23.2
 
 ARG BADGER_VERSION=0.3.0
 
